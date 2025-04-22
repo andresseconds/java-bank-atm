@@ -17,7 +17,7 @@ public class Main {
         }
 
         //Uso de operadores
-        balance++; //Incremento
+        balance++;  //Incremento
         String status = (balance < 0) ? "Deuda":"Crédito";
         System.out.println("Estado de cuenta"+ status);
 
