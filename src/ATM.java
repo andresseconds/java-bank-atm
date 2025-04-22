@@ -1,7 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ATM {
     private Calculator calculator = new Calculator();
+    private List<Account> accounts;
+
+    //Constructor
+    public ATM(){
+        this.accounts = new ArrayList<>();
+    }
+
+    //Agrega cuentas al listado de cuentas
+    public void addAccount(Account account){
+        this.accounts.add(account);
+    }
+
+    public Account getAccount(String accountNumber){
+        for(Account account : accounts){
+            if (account.getAccountNumber().equals(accountNumber)){
+                return account;
+            }
+        }
+        return null;
+    }
+
 
     public void start(){
         Scanner scanner = new Scanner(System.in);
