@@ -1,27 +1,18 @@
 
-public class Account {
+public abstract class Account {
     private String accountNumber;
     private double balance;
+    private String pin;
 
 
     //Constructor
-    public Account(String accountNumber, double initialBalance){
+    public Account(String accountNumber, double initialBalance, String pin){
         this.accountNumber = accountNumber;
         this.balance = initialBalance;
+        this.pin = pin;
     }
 
-    //Métodos
-    public void deposit(double amount){
-        this.balance += amount;
-    }
-
-    public void withdraw(double amount){
-        if(amount > this.balance){
-            throw new ArithmeticException("Saldo insuficiente");
-        }
-        this.balance -= amount;
-    }
-
+    // Getter and Setter
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -37,4 +28,19 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    //Métodos
+    public abstract void deposit(double amount);
+    /*{
+        this.balance += amount;
+    }*/
+
+    public abstract void withdraw(double amount);
+
+    /*{
+        /*if(amount > this.balance){
+            throw new ArithmeticException("Saldo insuficiente");
+        }
+        this.balance -= amount;
+    }*/
 }

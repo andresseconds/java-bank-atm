@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ATM {
+public class ATM implements Authenticatable{
     private Calculator calculator = new Calculator();
     private List<Account> accounts;
 
@@ -11,6 +11,8 @@ public class ATM {
         this.accounts = new ArrayList<>();
     }
 
+
+    //Métodos
     //Agrega cuentas al listado de cuentas
     public void addAccount(Account account){
         this.accounts.add(account);
@@ -24,7 +26,6 @@ public class ATM {
         }
         return null;
     }
-
 
     public void start(){
         Scanner scanner = new Scanner(System.in);
@@ -53,5 +54,11 @@ public class ATM {
                     break;
             }
         }
+    }
+
+    @Override
+    public boolean authenticatable(String pin) {
+        //Lógica de autenticación...
+        return true;
     }
 }
